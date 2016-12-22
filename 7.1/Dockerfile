@@ -6,7 +6,9 @@ RUN echo http://nl.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories 
 	&& echo http://nl.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories \
 	&& apk --no-cache add gosu dockerize \
 	&& addgroup -g 500 symfony \
-	&& adduser -u 500 -D -G symfony -h /srv/symfony -s /bin/sh symfony
+	&& adduser -u 500 -D -G symfony -h /home/symfony -s /bin/sh symfony \
+	&& mkdir /srv/symfony \
+	&& chown symfony:symfony /srv/symfony
 
 RUN apk add --no-cache --virtual .build-dependencies curl curl-dev icu-dev sqlite-dev \
 	&& apk add --no-cache icu git \
@@ -23,11 +25,11 @@ ADD pool.d /usr/local/etc/php-fpm.d/
 
 RUN apk add --no-cache --virtual .build-dependencies openssh-client \
 	&& chmod 0755 /usr/local/bin/entrypoint.sh \
-	&& mkdir -p /srv/symfony/.ssh \
- 	&& ssh-keyscan github.com >> /srv/symfony/.ssh/known_hosts \
-	&& chmod 700 /srv/symfony/.ssh \
-	&& chmod 600 /srv/symfony/.ssh/* \
- 	&& chown symfony:symfony -R /srv/symfony \
+	&& mkdir -p /home/symfony/.ssh \
+ 	&& ssh-keyscan github.com >> /home/symfony/.ssh/known_hosts \
+	&& chmod 700 /home/symfony/.ssh \
+	&& chmod 600 /home/symfony/.ssh/* \
+ 	&& chown symfony:symfony -R /home/symfony \
  	&& apk del .build-dependencies
 
 WORKDIR /srv/symfony
