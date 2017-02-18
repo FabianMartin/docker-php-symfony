@@ -6,7 +6,7 @@ RUN apk add dockerize gosu --no-cache --repository http://dl-cdn.alpinelinux.org
 	&& mkdir /srv/symfony \
 	&& chown symfony:symfony /srv/symfony
 
-RUN apk add --no-cache php7 php7-curl php7-fpm php7-iconv php7-intl php7-json php7-mbstring php7-opcache php7-openssl php7-phar php7-pdo php7-pdo_mysql php7-pdo_sqlite php7-session php7-xdebug php7-zlib git openssh-client \
+RUN apk add --no-cache php7 php7-curl php7-ctype php7-fpm php7-iconv php7-intl php7-json php7-mbstring php7-opcache php7-openssl php7-phar php7-pdo php7-pdo_mysql php7-pdo_sqlite php7-session php7-xdebug php7-zlib git openssh-client \
 	&& apk add --no-cache --virtual .build-dependencies curl \
 	&& ln -s /usr/bin/php7 /usr/bin/php \
 	&& ln -s /usr/sbin/php-fpm7 /usr/sbin/php-fpm \

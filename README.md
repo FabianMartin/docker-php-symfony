@@ -12,9 +12,9 @@ php image for symfony projects
 | 5.6-alpine        | alpine:3.5         | 5.6           | :white_check_mark: | :white_check_mark: | :x:                |
 | 5.6-cli-alpine    | alpine:3.5         | 5.6           | :white_check_mark: | :x:                | :x:                |
 | 5.6-xdebug-alpine | alpine:3.5         | 5.6           | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| 7.0               | php:7.0-fpm-alpine | 7.0           | :white_check_mark: | :white_check_mark: | :x:                |
-| 7.0-cli           | php:7.0-alpine     | 7.0           | :white_check_mark: | :x:                | :x:                |
-| 7.0-xdebug        | php:7.0-fpm-alpine | 7.0           | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| 7.0               | php:7.0.15-fpm-alpine | 7.0           | :white_check_mark: | :white_check_mark: | :x:                |
+| 7.0-cli           | php:7.0.15-alpine     | 7.0           | :white_check_mark: | :x:                | :x:                |
+| 7.0-xdebug        | php:7.0.15-fpm-alpine | 7.0           | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | 7.0-alpine        | alpine:3.5         | 7.0           | :white_check_mark: | :white_check_mark: | :x:                |
 | 7.0-cli-alpine    | alpine:3.5         | 7.0           | :white_check_mark: | :x:                | :x:                |
 | 7.0-xdebug-alpine | alpine:3.5         | 7.0           | :white_check_mark: | :white_check_mark: | :white_check_mark: |
@@ -24,6 +24,8 @@ php image for symfony projects
 | 7.1-alpine        | alpine:edge        | 7.1           | :white_check_mark: | :white_check_mark: | :x:                |
 | 7.1-cli-alpine    | alpine:edge        | 7.1           | :white_check_mark: | :x:                | :x:                |
 | 7.1-xdebug-alpine | alpine:edge        | 7.1           | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+
+PHP 7.0 are currently pinned to 7.0.15 due a bug in random_bytes and random_int (https://bugs.php.net/bug.php?id=74105)
 
 ## php-fpm
 

@@ -1,4 +1,4 @@
-FROM php:7.0-fpm-alpine
+FROM php:7.0.15-fpm-alpine
 
 ENV SYMFONY_ENV dev
 
@@ -8,9 +8,9 @@ RUN apk add dockerize gosu --no-cache --repository http://dl-cdn.alpinelinux.org
 	&& mkdir /srv/symfony \
 	&& chown symfony:symfony /srv/symfony
 
-RUN apk add --no-cache --virtual .build-dependencies curl curl-dev icu-dev sqlite-dev \
+RUN apk add --no-cache --virtual .build-dependencies curl curl-dev icu-dev sqlite-dev coreutils \
 	&& apk add --no-cache icu git openssh-client \
-    && docker-php-ext-install curl iconv intl json mbstring opcache pdo_mysql pdo_sqlite zip \
+    && docker-php-ext-install -j$(nproc) curl iconv intl json mbstring opcache pdo_mysql pdo_sqlite zip \
 	&& curl -sS https://getcomposer.org/installer | php \
 	&& mv composer.phar /usr/local/bin/composer \
 	&& curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony \
