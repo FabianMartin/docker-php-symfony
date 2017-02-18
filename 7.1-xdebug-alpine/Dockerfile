@@ -16,7 +16,8 @@ RUN apk add --no-cache php7.1 php7.1-curl php7.1-fpm php7.1-iconv php7.1-intl ph
 	&& chmod a+x /usr/local/bin/composer \
 	&& curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony \
 	&& chmod a+x /usr/local/bin/symfony \
-    && apk del .build-dependencies
+    && apk del .build-dependencies \
+    && rm -rf /tmp/*
 
 ADD entrypoint.sh /usr/local/bin/entrypoint.sh
 ADD php /etc/php7.1/
