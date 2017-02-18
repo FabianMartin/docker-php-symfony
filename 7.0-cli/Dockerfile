@@ -1,4 +1,4 @@
-FROM php:7.1-fpm-alpine
+FROM php:7.0-alpine
 
 ENV SYMFONY_ENV dev
 
@@ -19,7 +19,6 @@ RUN apk add --no-cache --virtual .build-dependencies curl curl-dev icu-dev sqlit
 
 ADD entrypoint.sh /usr/local/bin/entrypoint.sh
 ADD conf.d /usr/local/etc/php/conf.d/
-ADD pool.d /usr/local/etc/php-fpm.d/
 
 RUN chmod 0755 /usr/local/bin/entrypoint.sh \
 	&& mkdir -p /home/symfony/.ssh \

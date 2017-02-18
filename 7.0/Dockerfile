@@ -2,9 +2,7 @@ FROM php:7.0-fpm-alpine
 
 ENV SYMFONY_ENV dev
 
-RUN echo http://nl.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories \
-	&& echo http://nl.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories \
-	&& apk --no-cache add gosu dockerize \
+RUN apk add dockerize gosu --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/ \
 	&& addgroup -g 500 symfony \
 	&& adduser -u 500 -D -G symfony -h /home/symfony -s /bin/sh symfony \
 	&& mkdir /srv/symfony \

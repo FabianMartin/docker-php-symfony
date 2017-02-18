@@ -1,6 +1,4 @@
-FROM php:7.1-fpm-alpine
-
-ENV SYMFONY_ENV dev
+FROM php:5.6-alpine
 
 RUN apk add dockerize gosu --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/ \
 	&& addgroup -g 500 symfony \
@@ -19,7 +17,6 @@ RUN apk add --no-cache --virtual .build-dependencies curl curl-dev icu-dev sqlit
 
 ADD entrypoint.sh /usr/local/bin/entrypoint.sh
 ADD conf.d /usr/local/etc/php/conf.d/
-ADD pool.d /usr/local/etc/php-fpm.d/
 
 RUN chmod 0755 /usr/local/bin/entrypoint.sh \
 	&& mkdir -p /home/symfony/.ssh \

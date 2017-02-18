@@ -1,6 +1,4 @@
-FROM php:7.1-fpm-alpine
-
-ENV SYMFONY_ENV dev
+FROM alpine:3.5
 
 RUN apk add dockerize gosu --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/ \
 	&& addgroup -g 500 symfony \
@@ -8,18 +6,17 @@ RUN apk add dockerize gosu --no-cache --repository http://dl-cdn.alpinelinux.org
 	&& mkdir /srv/symfony \
 	&& chown symfony:symfony /srv/symfony
 
-RUN apk add --no-cache --virtual .build-dependencies curl curl-dev icu-dev sqlite-dev \
-	&& apk add --no-cache icu git openssh-client \
-    && docker-php-ext-install curl iconv intl json mbstring opcache pdo_mysql pdo_sqlite zip \
+RUN apk add --no-cache php5-cli php5-curl php5-fpm php5-iconv php5-intl php5-json php5-opcache php5-openssl php5-phar php5-pdo php5-pdo_mysql php5-pdo_sqlite php5-xdebug php5-zlib git openssh-client \
+	&& apk add --no-cache --virtual .build-dependencies curl \
 	&& curl -sS https://getcomposer.org/installer | php \
 	&& mv composer.phar /usr/local/bin/composer \
+	&& chmod a+x /usr/local/bin/composer \
 	&& curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony \
 	&& chmod a+x /usr/local/bin/symfony \
     && apk del .build-dependencies
 
 ADD entrypoint.sh /usr/local/bin/entrypoint.sh
-ADD conf.d /usr/local/etc/php/conf.d/
-ADD pool.d /usr/local/etc/php-fpm.d/
+ADD php /etc/php5/
 
 RUN chmod 0755 /usr/local/bin/entrypoint.sh \
 	&& mkdir -p /home/symfony/.ssh \
