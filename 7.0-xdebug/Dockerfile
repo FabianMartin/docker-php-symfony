@@ -1,4 +1,4 @@
-FROM php:7.0.15-fpm-alpine
+FROM php:7.0-fpm-alpine
 
 ENV SYMFONY_ENV dev
 
