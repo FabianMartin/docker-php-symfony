@@ -6,7 +6,7 @@ RUN apk add dockerize gosu --no-cache --repository http://nl.alpinelinux.org/alp
 	&& mkdir /srv/symfony \
 	&& chown symfony:symfony /srv/symfony
 
-RUN apk add --no-cache php7.1 php7.1-curl php7.1-ctype php7.1-iconv php7.1-intl php7.1-json php7.1-mbstring php7.1-opcache php7.1-openssl php7.1-phar php7.1-pdo php7.1-pdo_mysql php7.1-pdo_sqlite php7.1-session php7.1-zlib --repository http://nl.alpinelinux.org/alpine/edge/testing --repository http://nl.alpinelinux.org/alpine/edge/main \
+RUN apk add --no-cache php7 php7-curl php7-ctype php7-iconv php7-intl php7-json php7-mbstring php7-opcache php7-openssl php7-phar php7-pdo php7-pdo_mysql php7-pdo_sqlite php7-session php7-zlib --repository http://nl.alpinelinux.org/alpine/edge/testing --repository http://nl.alpinelinux.org/alpine/edge/main \
 	&& apk add --no-cache git openssh-client \
 	&& apk add --no-cache --virtual .build-dependencies curl \
 	&& ln -s /usr/sbin/php-fpm7 /usr/sbin/php-fpm \
@@ -18,7 +18,7 @@ RUN apk add --no-cache php7.1 php7.1-curl php7.1-ctype php7.1-iconv php7.1-intl 
     && apk del .build-dependencies
 
 ADD entrypoint.sh /usr/local/bin/entrypoint.sh
-ADD php /etc/php7.1/
+ADD php /etc/php7/
 
 RUN chmod 0755 /usr/local/bin/entrypoint.sh \
 	&& mkdir -p /home/symfony/.ssh \
