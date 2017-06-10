@@ -21,9 +21,9 @@ php image for symfony projects
 | 7.1               | php:7.1-fpm-alpine | 7.1           | :white_check_mark: | :white_check_mark: | :x:                |
 | 7.1-cli           | php:7.1-alpine     | 7.1           | :white_check_mark: | :x:                | :x:                |
 | 7.1-xdebug        | php:7.1-fpm-alpine | 7.1           | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| 7.1-alpine        | alpine:3.5         | 7.1           | :white_check_mark: | :white_check_mark: | :x:                |
-| 7.1-cli-alpine    | alpine:3.5         | 7.1           | :white_check_mark: | :x:                | :x:                |
-| 7.1-xdebug-alpine | alpine:3.5         | 7.1           | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| 7.1-alpine        | alpine:3.6         | 7.1           | :white_check_mark: | :white_check_mark: | :x:                |
+| 7.1-cli-alpine    | alpine:3.6         | 7.1           | :white_check_mark: | :x:                | :x:                |
+| 7.1-xdebug-alpine | alpine:3.6         | 7.1           | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 
 ## php-fpm
 

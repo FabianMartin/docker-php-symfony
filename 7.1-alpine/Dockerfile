@@ -1,4 +1,4 @@
-FROM alpine:3.5
+FROM alpine:3.6
 
 RUN apk add dockerize gosu --no-cache --repository http://nl.alpinelinux.org/alpine/edge/testing \
 	&& addgroup -g 500 symfony \
@@ -6,7 +6,7 @@ RUN apk add dockerize gosu --no-cache --repository http://nl.alpinelinux.org/alp
 	&& mkdir /srv/symfony \
 	&& chown symfony:symfony /srv/symfony
 
-RUN apk add --no-cache php7 php7-curl php7-ctype php7-fpm php7-iconv php7-intl php7-json php7-mbstring php7-opcache php7-openssl php7-phar php7-pdo php7-pdo_mysql php7-pdo_sqlite php7-session php7-zlib --repository http://nl.alpinelinux.org/alpine/edge/testing --repository http://nl.alpinelinux.org/alpine/edge/main \
+RUN apk add --no-cache php7 php7-curl php7-ctype php7-fpm php7-iconv php7-intl php7-json php7-mbstring php7-opcache php7-openssl php7-phar php7-pdo php7-pdo_mysql php7-pdo_sqlite php7-session php7-zlib \
 	&& apk add --no-cache git openssh-client \
 	&& apk add --no-cache --virtual .build-dependencies curl \
 	&& ln -s /usr/sbin/php-fpm7 /usr/sbin/php-fpm \
