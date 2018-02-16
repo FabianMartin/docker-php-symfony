@@ -3,27 +3,40 @@
 php image for symfony projects
 
 ## Feature sheet
- 
-| Tag               | Base image         | PHP version   | cli                | fpm                | xdebug             |
-| ----------------- | ------------------ | ------------- | :----------------: | :----------------: | :----------------: |
-| 5.6               | php:5.6-fpm-alpine | 5.6           | :white_check_mark: | :white_check_mark: | :x:                |
-| 5.6-cli           | php:5.6-alpine     | 5.6           | :white_check_mark: | :x:                | :x:                |
-| 5.6-xdebug        | php:5.6-fpm-alpine | 5.6           | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| 5.6-alpine        | alpine:3.5         | 5.6           | :white_check_mark: | :white_check_mark: | :x:                |
-| 5.6-cli-alpine    | alpine:3.5         | 5.6           | :white_check_mark: | :x:                | :x:                |
-| 5.6-xdebug-alpine | alpine:3.5         | 5.6           | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| 7.0               | php:7.0-fpm-alpine | 7.0           | :white_check_mark: | :white_check_mark: | :x:                |
-| 7.0-cli           | php:7.0-alpine     | 7.0           | :white_check_mark: | :x:                | :x:                |
-| 7.0-xdebug        | php:7.0-fpm-alpine | 7.0           | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| 7.0-alpine        | alpine:3.5         | 7.0           | :white_check_mark: | :white_check_mark: | :x:                |
-| 7.0-cli-alpine    | alpine:3.5         | 7.0           | :white_check_mark: | :x:                | :x:                |
-| 7.0-xdebug-alpine | alpine:3.5         | 7.0           | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| 7.1               | php:7.1-fpm-alpine | 7.1           | :white_check_mark: | :white_check_mark: | :x:                |
-| 7.1-cli           | php:7.1-alpine     | 7.1           | :white_check_mark: | :x:                | :x:                |
-| 7.1-xdebug        | php:7.1-fpm-alpine | 7.1           | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| 7.1-alpine        | alpine:3.6         | 7.1           | :white_check_mark: | :white_check_mark: | :x:                |
-| 7.1-cli-alpine    | alpine:3.6         | 7.1           | :white_check_mark: | :x:                | :x:                |
-| 7.1-xdebug-alpine | alpine:3.6         | 7.1           | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+
+### Based on alpine images from php repository (https://hub.docker.com/_/php/)
+
+| Tag               | Base image         | Distribution | PHP version   | cli  | fpm  | xdebug |
+| ----------------- | ------------------ | ------------ | ------------- | :--: | :--: | :----: |
+| 5.6               | php:5.6-fpm-alpine | Alpine 3.4   | 5.6           | ✓    | ✓    | X      |
+| 5.6-cli           | php:5.6-alpine     | Alpine 3.4   | 5.6           | ✓    | X    | X      |
+| 5.6-xdebug        | php:5.6-fpm-alpine | Alpine 3.4   | 5.6           | ✓    | ✓    | ✓      |
+| 7.0               | php:7.0-fpm-alpine | Alpine 3.4   | 7.0           | ✓    | ✓    | X      |
+| 7.0-cli           | php:7.0-alpine     | Alpine 3.4   | 7.0           | ✓    | X    | X      |
+| 7.0-xdebug        | php:7.0-fpm-alpine | Alpine 3.4   | 7.0           | ✓    | ✓    | ✓      |
+| 7.1               | php:7.1-fpm-alpine | Alpine 3.4   | 7.1           | ✓    | ✓    | X      |
+| 7.1-cli           | php:7.1-alpine     | Alpine 3.4   | 7.1           | ✓    | X    | X      |
+| 7.1-xdebug        | php:7.1-fpm-alpine | Alpine 3.4   | 7.1           | ✓    | ✓    | ✓      |
+| 7.2               | php:7.2-fpm-alpine | Alpine 3.7   | 7.2           | ✓    | ✓    | X      |
+| 7.2-cli           | php:7.2-alpine     | Alpine 3.7   | 7.2           | ✓    | X    | X      |
+| 7.2-xdebug        | php:7.2-fpm-alpine | Alpine 3.7   | 7.2           | ✓    | ✓    | ✓      |
+
+### Based on debian images from php repository (https://hub.docker.com/_/php/)
+
+| Tag               | Base image         | Distribution   | PHP version   | cli  | fpm  | xdebug |
+| ----------------- | ------------------ | -------------- | ------------- | :--: | :--: | :----: |
+| 5.6-debian        | php:5.6-fpm-alpine | Debian Jessie  | 5.6           | ✓    | ✓    | X      |
+| 5.6-cli-debian    | php:5.6-alpine     | Debian Jessie  | 5.6           | ✓    | X    | X      |
+| 5.6-xdebug-debian | php:5.6-fpm-alpine | Debian Jessie  | 5.6           | ✓    | ✓    | ✓      |
+| 7.0-debian        | php:7.0-fpm-alpine | Debian Jessie  | 7.0           | ✓    | ✓    | X      |
+| 7.0-cli-debian    | php:7.0-alpine     | Debian Jessie  | 7.0           | ✓    | X    | X      |
+| 7.0-xdebug-debian | php:7.0-fpm-alpine | Debian Jessie  | 7.0           | ✓    | ✓    | ✓      |
+| 7.1-debian        | php:7.1-fpm-alpine | Debian Jessie  | 7.1           | ✓    | ✓    | X      |
+| 7.1-cli-debian    | php:7.1-alpine     | Debian Jessie  | 7.1           | ✓    | X    | X      |
+| 7.1-xdebug-debian | php:7.1-fpm-alpine | Debian Jessie  | 7.1           | ✓    | ✓    | ✓      |
+| 7.2-debian        | php:7.2-fpm-alpine | Debian Stretch | 7.2           | ✓    | ✓    | X      |
+| 7.2-cli-debian    | php:7.2-alpine     | Debian Stretch | 7.2           | ✓    | X    | X      |
+| 7.2-xdebug-debian | php:7.2-fpm-alpine | Debian Stretch | 7.2           | ✓    | ✓    | ✓      |
 
 ## php-fpm
 
@@ -40,6 +53,9 @@ session.auto_start = Off
 
 upload_max_filesize = 256M
 post_max_size = 256M
+
+log_errors = on
+error_log = /proc/self/fd/2
 
 [Xdebug]
 xdebug.remote_enable=1
